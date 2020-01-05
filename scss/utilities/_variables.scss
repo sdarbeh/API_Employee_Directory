@@ -1,0 +1,29 @@
+//Global Colors
+$white: #FFFFFF;
+
+$color-light: #BFBFBF;
+$color-text-normal: #262626;
+
+$color-primary: #262626;
+$color-secondary: #F2F2F2;
+
+//Borders
+$border-normal: 1px $color-light solid;
+
+//Content Size
+$profile-image-mobile: 40px;
+$profile-image-tablet: 30px;
+$profile-image-desktop: 30px;
+
+//Fonts
+$font-primary:  'Poppins', sans-serif;
+$font-weight-bold: 700;
+
+//Media Query Sizes
+$breakpoints: (
+        's': 320px,
+        "m": 768px,
+        "l": 1024px,
+        "xl": 1200px,
+        "max-width": 1500px,
+);

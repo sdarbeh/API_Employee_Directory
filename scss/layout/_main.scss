@@ -1,0 +1,132 @@
+main {
+  margin: 20px 0;
+  min-height: calc( 100vh - 14vh - 40px); // calc function equals a 100% min height for mobile
+  // child elements below
+  .wrapper {
+    padding: 15px;
+    //width: calc( 100% - 30px);
+    //height: calc( 100% - 30px);
+  }
+  .page-title {
+    margin: 0 0 20px 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
+
+// employee card
+.employee-card {
+  @include flex($align: center, $just: center);
+  width: 100%;
+  height: 150px;
+  border: $border-normal;
+  margin: 10px 0;
+  border-radius: 10px;
+    //children
+    .card-wrapper {
+      @include flex($align: center, $just: space-between);
+      border-radius: 10px;
+    }
+    .employee-image-container {
+      margin: 0 auto 0 0;
+    }
+    .employee-image {
+      height: 80px;
+      width: 80px;
+      background-color: black;
+      border-radius: 50%;
+    }
+    .employee-info-container {
+      margin: 0 0 0 20px;
+    }
+    .employee-name {
+      font-size: 1.2rem;
+      font-weight: $font-weight-bold;
+      margin: 0 0 10px 0;
+    }
+    .employee-email {
+      cursor: pointer;
+    }
+    .employee-email, .employee-location {
+      color: $color-light;
+      margin: 5px 0 0 0;
+      font-size: .9rem;
+    }
+}
+
+//  pop up container
+.extended-employee-card {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  z-index: 4;
+  width: 85%;
+  border-radius: 10px;
+  border: $border-normal;
+    // Pop-up children
+    .extended-card-wrapper {
+      text-align: center!important;
+      position: relative;
+      padding: 15px 15px 30px 15px;
+      border-radius: 10px;
+    }
+    .close {
+      cursor: pointer;
+      position: absolute;
+      top: 2%;
+      right: 5%;
+      font-size: 1.3rem;
+      color: $color-light;
+      font-weight: $font-weight-bold;
+    }
+    .employee-image-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 20px 0;
+    }
+    .extended-employee-image {
+      height: 150px;
+      width: 150px;
+      background-color: black;
+      border-radius: 50%;
+    }
+    .employee-name {
+      font-size: 1.2rem;
+      font-weight: $font-weight-bold;
+      margin: 0 0 10px 0;
+    }
+    .employee-email, .employee-location {
+      color: $color-light;
+      margin: 5px 0 0 0;
+      font-size: .9rem;
+    }
+    .employee-info-container {
+      margin: 0 0 75px 0;
+    }
+    .extended-employee-info {
+      color: $color-light;
+    }
+    .employee-phone-number, .employee-address, .employee-birthday {
+      margin: 5px 0 0 0;
+      font-size: .9rem;
+    }
+}
+// background overlay for pop-up
+.cover{
+  display: none;
+  position:fixed;
+  top:0;
+  left:0;
+  background:rgba(0,0,0,0.6);
+  z-index:3;
+  width:100%;
+  height:100%;
+}
+// toggles display using JS
+.pop-up-active {
+  display: unset!important;
+}
+
+
+

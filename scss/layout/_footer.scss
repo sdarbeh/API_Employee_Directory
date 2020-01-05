@@ -1,0 +1,7 @@
+footer {
+  @include flex($align: center, $just: center);
+  width: 100%;
+  height: 7vh;
+  background-color: $color-primary;
+  color: $white;
+}
