@@ -1,38 +1,82 @@
 main {
   margin: 20px 0;
   min-height: calc( 100vh - 14vh - 40px); // calc function equals a 100% min height for mobile
-  // child elements below
-  .wrapper {
-    padding: 15px;
-    //width: calc( 100% - 30px);
-    //height: calc( 100% - 30px);
+  min-width: 360px;
+    // child elements below
+    .main-wrapper {
+      padding: 15px 15px;
+      //width: calc( 100% - 30px);
+      //height: calc( 100% - 30px);
+    }
+    .page-title {
+      margin: 0 0 20px 0;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+  // Media query 768px
+  @include mq("m") {
+  min-height: calc( 100vh - 70px - 70px - 40px);
+  // header and footer height is fixed 70px on screen sizes 768px and up. 40px is main margin
+    .main-wrapper {
+      padding: 15px 30px;
+    }
+    // main child elements
+    .employee-card-container {
+      @include flex($align: center, $just: space-between, $wrap: wrap);
+    }
+    .page-options {
+      @include flex($just:center, $align: center);
+    }
+    .page-title-container {
+      margin: 0 auto 0 0;
+    }
   }
-  .page-title {
-    margin: 0 0 20px 0;
-    font-size: 1rem;
-    text-transform: uppercase;
+  // Media query 1024px
+  @include mq("l") {
+    // main child elements
+    .main-wrapper {
+      padding: 15px 8%;
+    }
+  }
+  // Media query 1200px
+  @include mq("xl") {
+    // main child elements
+    .main-wrapper {
+      padding: 15px 8%;
+    }
+  }
+  // Media query max-width at 1500px
+  @include mq("max") {
+    .main-wrapper {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
   }
 }
 
 // employee card
 .employee-card {
-  @include flex($align: center, $just: center);
+  @include flex($align: center);
   width: 100%;
   height: 150px;
-  border: $border-normal;
   margin: 10px 0;
   border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
     //children
     .card-wrapper {
-      @include flex($align: center, $just: space-between);
+      @include flex($align: center);
+      width: 100%;
       border-radius: 10px;
+      padding: 15px 0 15px 15px;
     }
     .employee-image-container {
-      margin: 0 auto 0 0;
+      margin: 0;
     }
     .employee-image {
-      height: 80px;
-      width: 80px;
+      height: 105px;
+      width: 105px;
       background-color: black;
       border-radius: 50%;
     }
@@ -44,15 +88,41 @@ main {
       font-weight: $font-weight-bold;
       margin: 0 0 10px 0;
     }
+    .employee-email-container {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+     }
     .employee-email {
       cursor: pointer;
+      max-width: 200px;
     }
     .employee-email, .employee-location {
       color: $color-light;
       margin: 5px 0 0 0;
       font-size: .9rem;
     }
-}
+    // Media query 768px
+    // .employee-card
+    @include mq("m") {
+      width: 48%;
+      .card-wrapper {
+        padding: 15px 0 15px 20px;
+      }
+      .employee-email {
+        max-width: 190px;
+      }
+    }
+  @include mq("l") {
+    .employee-email {
+      max-width: unset;
+    }
+  }
+   // .employee-card
+    @include mq("xl") {
+      width: 32%;
+    }
+ }
 
 //  pop up container
 .extended-employee-card {
@@ -64,6 +134,7 @@ main {
   width: 85%;
   border-radius: 10px;
   border: $border-normal;
+  background-color: $white;
     // Pop-up children
     .extended-card-wrapper {
       text-align: center!important;
@@ -102,15 +173,35 @@ main {
       font-size: .9rem;
     }
     .employee-info-container {
-      margin: 0 0 75px 0;
+      padding: 0 0 30px 0;
+      border-bottom: $border-normal;
     }
     .extended-employee-info {
+      padding: 30px 0 0 0;
       color: $color-light;
     }
     .employee-phone-number, .employee-address, .employee-birthday {
       margin: 5px 0 0 0;
       font-size: .9rem;
     }
+  // Media query 768px
+  // .extended-employee-card
+  @include mq("m") {
+    left: 30%;
+    width: 45%;
+  }
+  @include mq("l") {
+    left: 33%;
+    width: 35%;
+  }
+  @include mq("xl") {
+    left: 38%;
+    width: 25%;
+  }
+  @include mq("max") {
+    left: 40%;
+    width: 20%;
+  }
 }
 // background overlay for pop-up
 .cover{

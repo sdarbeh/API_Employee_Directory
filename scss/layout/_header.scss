@@ -2,20 +2,38 @@
 header {
   @include position($pos: relative);
   width: 100%;
+  min-width: 360px;
   height: 7vh;
   background-color: $color-primary;
   color: $color-secondary;
-  nav {
-    width: 0;
-    display: none;
-    color: $color-light;
+    nav {
+      width: 0;
+      display: none;
+    }
+  @include mq("m") {
+    height: 70px;
   }
 }
 .logo {
-  @include position($pos: absolute, $right: 30%, $top: 30%, $z: 2);
+  @include position($pos: absolute, $right: 27%, $top: 30%, $z: 2);
   margin: 0;
   font-size: 1rem;
   font-weight: 400;
+  @include mq("m") {
+    right: 38%;
+    font-size: 1.2rem;
+  }
+  @include mq("l") {
+    font-size: 1.5rem;
+  }
+  @include mq("xl") {
+    right: 42%;
+    font-size: 1.2rem;
+  }
+  @include mq("max") {
+    right: 45%;
+    font-size: 1.3rem;
+  }
 }
 // JS adds menu-expanded to nav when hamburger is clicked
 .menu-expanded {
@@ -28,12 +46,3 @@ header {
   touch-action: none;
   transition: 0.5s;
 }
-.nav-options {
-  @include position($pos: absolute, $left: 30%, $top: 30%, $z: 2);
-  @include flex($just: center, $wrap: wrap, $align: center);
-  width: 100%;
-  .navigation-page {
-    width: 100%;
-  }
-}
-

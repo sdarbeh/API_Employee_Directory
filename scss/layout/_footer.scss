@@ -1,7 +1,9 @@
 footer {
-  @include flex($align: center, $just: center);
   width: 100%;
+  min-width: 360px;
   height: 7vh;
   background-color: $color-primary;
-  color: $white;
+  @include mq("m") {
+    height: 70px;
+  }
 }

@@ -470,29 +470,99 @@ ul {
   transform: rotate(-90deg);
   transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
+.employee-card {
+  transition-duration: .5s; }
+
+@media (min-width: 768px) {
+  .employee-card:hover {
+    background-color: #FFFFFF;
+    transform: scale(1.1); } }
+
+.search-container {
+  display: flex;
+  justify-content: center; }
+  .search-container label {
+    width: 100%;
+    position: relative;
+    margin: 0 0 20px 0; }
+  .search-container #search {
+    outline: none;
+    border: unset;
+    border-radius: 10px;
+    width: 90%;
+    height: 35px;
+    padding: 5px 15px 5px 15px;
+    margin: 0 auto; }
+  .search-container ::placeholder {
+    font-size: .8rem;
+    font-style: italic;
+    color: #BFBFBF; }
+  .search-container .search-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5%;
+    right: 0;
+    width: 45px;
+    height: 42px;
+    background-color: #262626;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 0 10px 10px 0; }
+  .search-container .icon-search {
+    fill: #595959;
+    width: 20px;
+    height: 20px; }
+  @media (min-width: 768px) {
+    .search-container {
+      width: 45%; } }
+  @media (min-width: 1200px) {
+    .search-container #search {
+      width: 95%; } }
+
 .wrapper {
   background-color: #F2F2F2;
-  font-family: "Poppins", sans-serif; }
+  font-family: "Open Sans", sans-serif; }
 
 header {
   position: relative;
   width: 100%;
+  min-width: 360px;
   height: 7vh;
   background-color: #262626;
   color: #F2F2F2; }
   header nav {
     width: 0;
-    display: none;
-    color: #BFBFBF; }
+    display: none; }
+  @media (min-width: 768px) {
+    header {
+      height: 70px; } }
 
 .logo {
   position: absolute;
   top: 30%;
-  right: 30%;
+  right: 27%;
   z-index: 2;
   margin: 0;
   font-size: 1rem;
   font-weight: 400; }
+  @media (min-width: 768px) {
+    .logo {
+      right: 38%;
+      font-size: 1.2rem; } }
+  @media (min-width: 1024px) {
+    .logo {
+      font-size: 1.5rem; } }
+  @media (min-width: 1200px) {
+    .logo {
+      right: 42%;
+      font-size: 1.2rem; } }
+  @media (min-width: 1500px) {
+    .logo {
+      right: 45%;
+      font-size: 1.3rem; } }
 
 .menu-expanded {
   position: fixed;
@@ -506,62 +576,96 @@ header {
   touch-action: none;
   transition: 0.5s; }
 
-.nav-options {
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%; }
-  .nav-options .navigation-page {
-    width: 100%; }
-
 main {
   margin: 20px 0;
-  min-height: calc( 100vh - 14vh - 40px); }
-  main .wrapper {
-    padding: 15px; }
+  min-height: calc( 100vh - 14vh - 40px);
+  min-width: 360px; }
+  main .main-wrapper {
+    padding: 15px 15px; }
   main .page-title {
     margin: 0 0 20px 0;
     font-size: 1rem;
     text-transform: uppercase; }
+  @media (min-width: 768px) {
+    main {
+      min-height: calc( 100vh - 70px - 70px - 40px); }
+      main .main-wrapper {
+        padding: 15px 30px; }
+      main .employee-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center; }
+      main .page-options {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+      main .page-title-container {
+        margin: 0 auto 0 0; } }
+  @media (min-width: 1024px) {
+    main .main-wrapper {
+      padding: 15px 8%; } }
+  @media (min-width: 1200px) {
+    main .main-wrapper {
+      padding: 15px 8%; } }
+  @media (min-width: 1500px) {
+    main .main-wrapper {
+      max-width: 1500px;
+      margin: 0 auto; } }
 
 .employee-card {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
   height: 150px;
-  border: 1px #BFBFBF solid;
   margin: 10px 0;
-  border-radius: 10px; }
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box; }
   .employee-card .card-wrapper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-radius: 10px; }
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px 0 15px 15px; }
   .employee-card .employee-image-container {
-    margin: 0 auto 0 0; }
+    margin: 0; }
   .employee-card .employee-image {
-    height: 80px;
-    width: 80px;
+    height: 105px;
+    width: 105px;
     background-color: black;
     border-radius: 50%; }
   .employee-card .employee-info-container {
     margin: 0 0 0 20px; }
   .employee-card .employee-name {
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0 10px 0; }
+  .employee-card .employee-email-container {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .employee-card .employee-email {
-    cursor: pointer; }
+    cursor: pointer;
+    max-width: 200px; }
   .employee-card .employee-email, .employee-card .employee-location {
     color: #BFBFBF;
     margin: 5px 0 0 0;
     font-size: .9rem; }
+  @media (min-width: 768px) {
+    .employee-card {
+      width: 48%; }
+      .employee-card .card-wrapper {
+        padding: 15px 0 15px 20px; }
+      .employee-card .employee-email {
+        max-width: 190px; } }
+  @media (min-width: 1024px) {
+    .employee-card .employee-email {
+      max-width: unset; } }
+  @media (min-width: 1200px) {
+    .employee-card {
+      width: 32%; } }
 
 .extended-employee-card {
   display: none;
@@ -571,7 +675,8 @@ main {
   z-index: 4;
   width: 85%;
   border-radius: 10px;
-  border: 1px #BFBFBF solid; }
+  border: 1px #262626 solid;
+  background-color: #FFFFFF; }
   .extended-employee-card .extended-card-wrapper {
     text-align: center !important;
     position: relative;
@@ -584,7 +689,7 @@ main {
     right: 5%;
     font-size: 1.3rem;
     color: #BFBFBF;
-    font-weight: 700; }
+    font-weight: 600; }
   .extended-employee-card .employee-image-container {
     display: flex;
     justify-content: center;
@@ -596,19 +701,37 @@ main {
     border-radius: 50%; }
   .extended-employee-card .employee-name {
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 600;
     margin: 0 0 10px 0; }
   .extended-employee-card .employee-email, .extended-employee-card .employee-location {
     color: #BFBFBF;
     margin: 5px 0 0 0;
     font-size: .9rem; }
   .extended-employee-card .employee-info-container {
-    margin: 0 0 75px 0; }
+    padding: 0 0 30px 0;
+    border-bottom: 1px #262626 solid; }
   .extended-employee-card .extended-employee-info {
+    padding: 30px 0 0 0;
     color: #BFBFBF; }
   .extended-employee-card .employee-phone-number, .extended-employee-card .employee-address, .extended-employee-card .employee-birthday {
     margin: 5px 0 0 0;
     font-size: .9rem; }
+  @media (min-width: 768px) {
+    .extended-employee-card {
+      left: 30%;
+      width: 45%; } }
+  @media (min-width: 1024px) {
+    .extended-employee-card {
+      left: 33%;
+      width: 35%; } }
+  @media (min-width: 1200px) {
+    .extended-employee-card {
+      left: 38%;
+      width: 25%; } }
+  @media (min-width: 1500px) {
+    .extended-employee-card {
+      left: 40%;
+      width: 20%; } }
 
 .cover {
   display: none;
@@ -624,12 +747,12 @@ main {
   display: unset !important; }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
+  min-width: 360px;
   height: 7vh;
-  background-color: #262626;
-  color: #FFFFFF; }
+  background-color: #262626; }
+  @media (min-width: 768px) {
+    footer {
+      height: 70px; } }
 
 /*# sourceMappingURL=styles.css.map */
