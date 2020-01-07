@@ -1,9 +1,0 @@
-.employee-card {
-  transition-duration: .5s;
-}
-.employee-card:hover {
-  @include mq("m") {
-    background-color: $white;
-    transform: scale(1.1);
-  }
-}

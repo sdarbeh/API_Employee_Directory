@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>API Employee Directory</title>
+    <link rel="icon" href="media/logo.png">
     <link rel="stylesheet" href="scss/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body class="wrapper">
     <header>
@@ -17,7 +18,7 @@
             </div>
         </div>
         <div class="logo-container">
-            <h2 class="logo">Employee API Directory</h2>
+            <a href="#"><svg class="icon-logo"><use xlink:href="sprite/sprite.svg#icon-logo"/></svg></a>
         </div>
         <nav></nav>
     </header>
@@ -35,43 +36,8 @@
                     </label>
                 </div>
             </div>
-
-
-            <div class="employee-card-container">
-            </div>
-
-            <div class="extended-employee-card">
-<!--                <div class="extended-card-wrapper">-->
-<!--                    <span class="close">X</span>-->
-<!--                    <div class="employee-image-container">-->
-<!--                        <div class="extended-employee-image"></div>-->
-<!--                    </div>-->
-<!--                    <div class="employee-info-container">-->
-<!--                        <div class="employee-name-container">-->
-<!--                            <p class="employee-name"></p>-->
-<!--                        </div>-->
-<!--                        <div class="employee-email-container">-->
-<!--                            <p class="employee-email"></p>-->
-<!--                        </div>-->
-<!--                        <div class="employee-location-container">-->
-<!--                            <p class="employee-location"></p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="extended-employee-info">-->
-<!--                        <div class="employee-phone-number-container">-->
-<!--                            <p class="employee-phone-number"></p>-->
-<!--                        </div>-->
-<!--                        <div class="employee-address-container">-->
-<!--                            <p class="employee-address"></p>-->
-<!--                        </div>-->
-<!--                        <div class="employee-birthday-container">-->
-<!--                            <p class="employee-birthday"></p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-            </div>
-
-
+            <div class="employee-card-container"></div>
+            <div class="extended-employee-card"></div>
             <div class="cover"></div>
         </div>
     </main>
