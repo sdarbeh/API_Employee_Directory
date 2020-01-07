@@ -1,0 +1,72 @@
+.wrapper {
+  font-family: $font-primary;
+}
+// header
+.logo {
+  font-size: 1rem;
+  font-weight: 400;
+    @include mq("m") {
+      font-size: 1.2rem;
+    }
+    @include mq("l") {
+      font-size: 1.5rem;
+    }
+    @include mq("xl") {
+      font-size: 1.2rem;
+    }
+    @include mq("max") {
+      font-size: 1.3rem;
+    }
+}
+// search
+::placeholder {
+  font-size: .8rem;
+  font-style: italic;
+  color: $color-medium;
+}
+.search-icon-container {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+//main
+.page-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: $color-text-normal;
+}
+.employee-name {
+  font-size: 1.2rem;
+  font-weight: $font-weight-bold;
+  color: $color-text-normal;
+}
+.employee-email-container {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.employee-email {
+  cursor: pointer;
+}
+.arrow {
+  fill: $color-light;
+  cursor: pointer;
+}
+.employee-email, .employee-location {
+  color: $color-medium;
+  font-size: .9rem;
+}
+.close {
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: $color-medium;
+  font-weight: $font-weight-bold;
+}
+.extended-employee-info {
+  color: $color-medium;
+}
+.employee-phone-number {
+  cursor: pointer;
+}
+.employee-phone-number, .employee-address, .employee-birthday {
+  font-size: .9rem;
+}

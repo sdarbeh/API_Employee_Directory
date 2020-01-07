@@ -1,0 +1,50 @@
+// hamburger is located in base/_hamburger
+header {
+  @include position($pos: relative);
+  width: 100%;
+  min-width: 360px;
+  height: 7vh;
+  background-color: $color-primary;
+  color: $color-secondary;
+    nav {
+      width: 0;
+      display: none;
+    }
+  @include mq("m") {
+    height: 70px;
+  }
+}
+.icon-logo {
+  @include position($pos: absolute, $right: 45%, $top: 13%, $z: 2);
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  fill: $color-secondary;
+    @include mq("m") {
+      right: 47%;
+      width: 50px;
+      height: 50px;
+    }
+    @include mq("l") {
+      right: 48%;
+    }
+    @include mq("xl") {
+      right: 49%;
+      width: 45px;
+      height: 45px;
+    }
+    @include mq("max") {
+      right: 50%;
+    }
+}
+// JS adds menu-expanded to nav when hamburger is clicked
+.menu-expanded {
+  @include position($pos: fixed, $left: 0, $z: 1);
+  display: unset;
+  width: 100%;
+  height: 100%;
+  background-color: $color-primary;
+  overflow-y: hidden;
+  touch-action: none;
+  transition: 0.5s;
+}

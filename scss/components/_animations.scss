@@ -1,0 +1,24 @@
+.icon-logo:hover {
+  @include mq("l") {
+    fill: $color-medium;
+    transform: scale(1.1);
+  }
+}
+.icon-logo, .employee-card {
+  transition-duration: .5s;
+}
+.employee-card:hover {
+  @include mq("m") {
+    background-color: $white;
+    transform: scale(1.1);
+  }
+}
+.arrow:hover {
+  fill: $color-text-normal;
+}
+.close:hover {
+  color: $color-text-normal;
+}
+.employee-email:hover, .employee-phone-number:hover {
+  color: $color-links;
+}

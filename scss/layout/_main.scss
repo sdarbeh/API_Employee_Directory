@@ -1,0 +1,209 @@
+main {
+  margin: 20px 0;
+  min-height: calc( 100vh - 14vh - 40px); // calc function equals a 100% min height for mobile
+  min-width: 360px;
+    // child elements below
+    .main-wrapper {
+      padding: 15px 15px;
+    }
+    .page-title {
+      margin: 0 0 20px 0;
+    }
+  // Media query 768px
+  @include mq("m") {
+  min-height: calc( 100vh - 70px - 70px - 40px);
+  // header and footer height is fixed 70px on screen sizes 768px and up. 40px is main margin
+    .main-wrapper {
+      padding: 15px 30px;
+    }
+    // main child elements
+    .employee-card-container {
+      @include flex($align: center, $just: space-between, $wrap: wrap);
+    }
+    .page-options {
+      @include flex($just:center, $align: center);
+    }
+    .page-title-container {
+      margin: 0 auto 0 0;
+    }
+  }
+  // Media query 1024px
+  @include mq("l") {
+    // main child elements
+    .main-wrapper {
+      padding: 15px 8%;
+    }
+  }
+  // Media query 1200px
+  @include mq("xl") {
+    // main child elements
+    .main-wrapper {
+      padding: 15px 8%;
+    }
+  }
+  // Media query max-width at 1500px
+  @include mq("max") {
+    .main-wrapper {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// employee card
+.employee-card {
+  @include flex($align: center);
+  width: 100%;
+  height: 150px;
+  margin: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
+    //children
+    .card-wrapper {
+      @include flex($align: center);
+      width: 100%;
+      border-radius: 10px;
+      padding: 15px 0 15px 15px;
+    }
+    .employee-image-container {
+      margin: 0;
+    }
+    .employee-image {
+      height: 105px;
+      width: 105px;
+      border-radius: 50%;
+    }
+    .employee-info-container {
+      margin: 0 0 0 20px;
+    }
+    .employee-name {
+      margin: 0 0 10px 0;
+    }
+    .employee-email {
+      cursor: pointer;
+    }
+    .employee-email, .employee-location {
+      margin: 5px 0 0 0;
+    }
+    // Media query 768px
+    // .employee-card
+    @include mq("m") {
+      width: 48%;
+      .card-wrapper {
+        padding: 15px 0 15px 20px;
+      }
+      .employee-email {
+        max-width: 190px;
+      }
+    }
+  @include mq("l") {
+    .employee-email {
+      max-width: unset;
+    }
+  }
+   // .employee-card
+    @include mq("xl") {
+      width: 32%;
+    }
+ }
+
+//  pop up container
+.extended-employee-card {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 8%;
+  z-index: 4;
+  width: 85%;
+  border-radius: 10px;
+  border: $border-normal;
+  background-color: $white;
+    // Pop-up children
+    .extended-card-wrapper {
+      text-align: center!important;
+      position: relative;
+      padding: 15px 15px 30px 15px;
+      border-radius: 10px;
+    }
+    .close {
+      cursor: pointer;
+      position: absolute;
+      top: 2%;
+      right: 5%;
+    }
+    .employee-image-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 20px 0;
+    }
+    .employee-image {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+    }
+    .employee-name {
+      margin: 0 0 10px 0;
+    }
+    .employee-email, .employee-location {
+      margin: 5px 0 0 0;
+    }
+    .employee-info-container {
+      padding: 0 0 30px 0;
+      border-bottom: $border-normal;
+      position: relative;
+    }
+    .arrow {
+      position: absolute;
+      top: 40%;
+      height: 35px;
+      width: 35px;
+    }
+    .left-arrow {
+      right: 2%;
+    }
+    .right-arrow {
+      left: 2%;
+      transform: rotate(180deg);
+    }
+    .extended-employee-info {
+      padding: 20px 0 0 0;
+    }
+    .employee-phone-number, .employee-address, .employee-birthday {
+      margin: 10px 0 0 0;
+    }
+  // Media query 768px
+  // .extended-employee-card
+  @include mq("m") {
+    left: 30%;
+    width: 45%;
+  }
+  @include mq("l") {
+    left: 33%;
+    width: 35%;
+  }
+  @include mq("xl") {
+    left: 38%;
+    width: 25%;
+  }
+  @include mq("max") {
+    left: 40%;
+    width: 20%;
+  }
+}
+// background overlay for pop-up
+.cover{
+  display: none;
+  position:fixed;
+  top:0;
+  left:0;
+  background:rgba(0,0,0,0.6);
+  z-index:3;
+  width:100%;
+  height:100%;
+}
+// toggles display using JS
+.pop-up-active {
+  display: unset!important;
+}
