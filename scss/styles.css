@@ -24,7 +24,8 @@
 
 .search-icon-container {
   font-size: 1.2rem;
-  cursor: pointer; }
+  cursor: pointer;
+  color: #262626; }
 
 .page-title {
   font-size: 1rem;
@@ -52,7 +53,7 @@
   color: #BFBFBF;
   font-size: .9rem; }
 
-.close {
+.employee-modal-close {
   cursor: pointer;
   font-size: 1.3rem;
   color: #BFBFBF;
@@ -555,7 +556,7 @@ ul {
 .arrow:hover {
   fill: #262626; }
 
-.close:hover {
+.employee-modal-close:hover {
   color: #262626; }
 
 .employee-email:hover, .employee-phone-number:hover {
@@ -679,7 +680,7 @@ main {
         margin: 0 auto 0 0; } }
   @media (min-width: 1024px) {
     main .main-wrapper {
-      padding: 15px 8%; } }
+      padding: 15px 5%; } }
   @media (min-width: 1200px) {
     main .main-wrapper {
       padding: 15px 8%; } }
@@ -745,9 +746,9 @@ main {
   .extended-employee-card .extended-card-wrapper {
     text-align: center !important;
     position: relative;
-    padding: 15px 15px 30px 15px;
+    padding: 15px 20px 30px 20px;
     border-radius: 10px; }
-  .extended-employee-card .close {
+  .extended-employee-card .employee-modal-close {
     cursor: pointer;
     position: absolute;
     top: 2%;
@@ -784,19 +785,23 @@ main {
     margin: 10px 0 0 0; }
   @media (min-width: 768px) {
     .extended-employee-card {
-      left: 30%;
-      width: 45%; } }
+      left: 27%;
+      width: 45%; }
+      .extended-employee-card .extended-card-wrapper {
+        padding: 15px 25px 30px 25px; } }
   @media (min-width: 1024px) {
     .extended-employee-card {
       left: 33%;
       width: 35%; } }
   @media (min-width: 1200px) {
     .extended-employee-card {
-      left: 38%;
-      width: 25%; } }
+      left: 37%;
+      width: 25%; }
+      .extended-employee-card .extended-card-wrapper {
+        padding: 15px 35px 30px 35px; } }
   @media (min-width: 1500px) {
     .extended-employee-card {
-      left: 40%;
+      left: 39%;
       width: 20%; } }
 
 .cover {

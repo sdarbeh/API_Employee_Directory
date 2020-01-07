@@ -27,6 +27,7 @@
 .search-icon-container {
   font-size: 1.2rem;
   cursor: pointer;
+  color: $color-text-normal;
 }
 //main
 .page-title {
@@ -55,7 +56,7 @@
   color: $color-medium;
   font-size: .9rem;
 }
-.close {
+.employee-modal-close {
   cursor: pointer;
   font-size: 1.3rem;
   color: $color-medium;

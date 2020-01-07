@@ -31,7 +31,7 @@ main {
   @include mq("l") {
     // main child elements
     .main-wrapper {
-      padding: 15px 8%;
+      padding: 15px 5%;
     }
   }
   // Media query 1200px
@@ -124,10 +124,10 @@ main {
     .extended-card-wrapper {
       text-align: center!important;
       position: relative;
-      padding: 15px 15px 30px 15px;
+      padding: 15px 20px 30px 20px;
       border-radius: 10px;
     }
-    .close {
+    .employee-modal-close {
       cursor: pointer;
       position: absolute;
       top: 2%;
@@ -176,19 +176,25 @@ main {
   // Media query 768px
   // .extended-employee-card
   @include mq("m") {
-    left: 30%;
+    left: 27%;
     width: 45%;
+    .extended-card-wrapper {
+      padding: 15px 25px 30px 25px;
+    }
   }
   @include mq("l") {
     left: 33%;
     width: 35%;
   }
   @include mq("xl") {
-    left: 38%;
+    left: 37%;
     width: 25%;
+    .extended-card-wrapper {
+      padding: 15px 35px 30px 35px;
+    }
   }
   @include mq("max") {
-    left: 40%;
+    left: 39%;
     width: 20%;
   }
 }

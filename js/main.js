@@ -1,6 +1,6 @@
 const hamburger = document.querySelector(".hamburger");
 const extendedEmployeeCard = document.querySelector(".extended-employee-card");
-const extendedCardCloseButton = document.querySelector(".close");
+const extendedCard = document.querySelector(".extended-employee-card");
 const overlay = document.querySelector(".cover");
 let employeeAPI = 'https://randomuser.me/api/?results=12&nat=us&inc=name, picture,email, location, phone, dob, nat & noinfo';
 const search = document.querySelector("#search");
@@ -11,6 +11,7 @@ let employeeInformation = [];
 
 window.onload = () => {
     searchIconContainer.innerHTML = "<svg class=\"icon-search\"><use xlink:href=\"sprite/sprite.svg#icon-search\"/></svg>\n";
+    openModal();
 };
 
 //---------------- EVENT LISTENERS --------------------- //
@@ -21,11 +22,6 @@ search.addEventListener('keyup', (e) => {
     changeSearchIcon();
 });
 searchIconContainer.addEventListener("click",  resetSearchIcon);
-
-$( ".close" ).on("click", function() {
-    console.log("something");
-});
-
 // ------------------- FETCH FUNCTIONS ------------------- //
 
 fetch(employeeAPI)
@@ -33,7 +29,7 @@ fetch(employeeAPI)
     .then(response => response.json())
     .then(data => {
         generateEmployeeCards(data.results);
-        console.log(data.results)
+        // console.log(data.results)
     })
     .catch(error => console.log("Looks like there was an problem!", error));
 
@@ -78,7 +74,7 @@ function generateExtendedEmployeeCard(index) {
 
     extendedEmployeeCard.innerHTML +=
         `<div class="extended-card-wrapper">
-            <span class="close">X</span>
+            <span class="employee-modal-close">X</span>
             <div class="employee-image-container">
                  <img class="employee-image" src="${picture.large}" alt="${name.first} ${name.last} profile picture"/>
             </div>
@@ -107,8 +103,6 @@ function generateExtendedEmployeeCard(index) {
             <svg class=\"left-arrow arrow\"><use xlink:href=\"sprite/sprite.svg#icon-arrow\"/></svg>
             <svg class=\"right-arrow arrow\"><use xlink:href=\"sprite/sprite.svg#icon-arrow\"/></svg>
         </div> `;
-    overlay.classList.toggle("pop-up-active");
-    extendedEmployeeCard.classList.toggle("pop-up-active");
 }
 
 // --------------------- FUNCTIONS ---------------------- //
@@ -121,8 +115,13 @@ function hamburgerMenu()  {
 
 function closeModal() {
     // removes pop-up-active to overlay and extended employee pop-up card
-    extendedEmployeeCard.classList.remove("pop-up-active");
-    overlay.classList.remove("pop-up-active");
+    extendedEmployeeCard.style.display = "none";
+    overlay.style.display = "none";
+}
+function activateModal() {
+
+    overlay.style.display = "block";
+    extendedEmployeeCard.style.display = "block";
 }
 
 function employeeSearchFilter() {
@@ -164,22 +163,32 @@ function resetSearchIcon() {
     })
 }
 
-function displayModal() {
+function openModal() {
     cardContainer.addEventListener('click', e => {
-        if (e.target !== cardContainer) {
+        if (e.target !== this) {
             const card = e.target.closest(".employee-card");
             const index = card.getAttribute('data-index');
             generateExtendedEmployeeCard(index);
+            activateModal();
+        //  BUG!! More than one pop-up is generated
         }
     });
 }
-displayModal();
 
-function modalNext() {
-    const leftArrow = document.querySelector(".left-arrow");
-    const rightArrow = document.querySelector(".left-arrow");
 
-    rightArrow.addEventListener("click", () => {
+// function modalNext() {
+//     const leftArrow = document.querySelector(".left-arrow");
+//     const rightArrow = document.querySelector(".left-arrow");
+//
+//     rightArrow.addEventListener("click", () => {
+//
+//     })
+// }
 
-    })
-}
+extendedCard.addEventListener("click", (e) => {
+    if(e.target.className === "employee-modal-close") {
+        closeModal();
+    } else if (e.target !== this){
+        closeModal();
+    }
+});
