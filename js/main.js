@@ -2,7 +2,7 @@ const hamburger = document.querySelector(".hamburger");
 const extendedEmployeeCard = document.querySelector(".extended-employee-card");
 const extendedCardCloseButton = document.querySelector(".close");
 const overlay = document.querySelector(".cover");
-let url = 'https://randomuser.me/api/?results=12&nat=us&inc=name, picture,email, location, phone, dob, nat & noinfo';
+let employeeAPI = 'https://randomuser.me/api/?results=12&nat=us&inc=name, picture,email, location, phone, dob, nat & noinfo';
 const search = document.querySelector("#search");
 let searchIconContainer = document.querySelector(".search-icon-container");
 
@@ -36,7 +36,8 @@ window.onload = () => {
                       <p class="employee-birthday"></p>
                  </div>
             </div>
-        </div> `
+        </div> `;
+
 };
 
 //---------------- EVENT LISTENERS --------------------- //
@@ -52,7 +53,7 @@ searchIconContainer.addEventListener("click",  resetSearchIcon);
 
 // ------------------- FETCH FUNCTIONS ------------------- //
 
-fetch(url)
+fetch(employeeAPI)
     .then(checkStatus)
     .then(response => response.json())
     .then(data => {
@@ -71,8 +72,7 @@ function checkStatus(response) {
 
 function generateEmployeeCards(data) {
     for ( let i = 0; i < data.length; i++) {
-        const cardContainer = document.querySelector(".employee-card-container");
-        cardContainer.innerHTML +=
+        document.querySelector(".employee-card-container").innerHTML +=
             `<div class="employee-card">
                 <div class="card-wrapper">
                     <div class="employee-image-container">
@@ -94,10 +94,21 @@ function generateEmployeeCards(data) {
     }
 }
 
+// function generateExtendedEmployeeCard(data) {
+// //     for ( let i = 0; i < data.length; i++) {
+// //         document.querySelector(".employee-image-container").innerHTML = `<img class=\"extended-employee-image"\" src=\"${data[i].picture.large}\" alt=\"${data[i].name.first} ${data[i].name.last} profile picture\"/>\n`;
+// //         document.querySelector(".employee-name").innerHTML = `${data[i].name.first} ${data[i].name.last}`;
+// //         // document.querySelector(".extended-employee-image").innerHTML = "";
+// //         // document.querySelector(".extended-employee-image").innerHTML = "";
+// //         // document.querySelector(".extended-employee-image").innerHTML = "";
+// //         // document.querySelector(".extended-employee-image").innerHTML = "";
+// //     }
+// // }
+
+
 // --------------------- FUNCTIONS ---------------------- //
 function hamburgerMenu()  {
     const nav = document.querySelector("nav");
-
     // toggles class to hamburger and nav. Mobile only use.
     hamburger.classList.toggle("is-active");
     nav.classList.toggle("menu-expanded");
@@ -114,18 +125,6 @@ function closeModal() {
     overlay.classList.remove("pop-up-active");
 }
 
-mediaQuery = () => {
-    const mqSmall = window.matchMedia("(min-width: 320px)");
-    const mqMedium = window.matchMedia("(min-width: 768px)");
-    const mqLarge = window.matchMedia("(min-width: 1024px)");
-    if (mqSmall.matches) {
-
-    }
-    if (mqMedium.matches) {
-
-    }
-}; mediaQuery();
-
 function employeeSearchFilter() {
     let employeeCards = document.querySelectorAll(".employee-card");
 
@@ -137,7 +136,6 @@ function employeeSearchFilter() {
             employee.style.display = "";
         } else {
             employee.style.display = "none";
-
         }
     })
     // Key typing activates function
@@ -155,7 +153,7 @@ function resetSearchIcon() {
     searchIconContainer.innerHTML = "<svg class=\"icon-search\"><use xlink:href=\"sprite/sprite.svg#icon-search\"/></svg>\n";
     searchIconContainer.style.backgroundColor = "#262626";
     search.value = "";
-    // shows all employee card
+    // shows all employee cards
     employeeCards.forEach(employee => {
         employee.style.display = ""
     })
