@@ -1,12 +1,12 @@
 const hamburger = document.querySelector(".hamburger");
 const extendedEmployeeCard = document.querySelector(".extended-employee-card");
-const extendedCard = document.querySelector(".extended-employee-card");
 const overlay = document.querySelector(".cover");
 let employeeAPI = 'https://randomuser.me/api/?results=12&nat=us&inc=name, picture,email, location, phone, dob, nat & noinfo';
 const search = document.querySelector("#search");
 let searchIconContainer = document.querySelector(".search-icon-container");
 const cardContainer = document.querySelector(".employee-card-container");
-let employeeInformation = [];
+let employeeInformation;
+let cardIndexValue;
 
 
 window.onload = () => {
@@ -15,7 +15,6 @@ window.onload = () => {
 };
 
 //---------------- EVENT LISTENERS --------------------- //
-
 hamburger.addEventListener("click", hamburgerMenu);
 search.addEventListener('keyup', (e) => {
     employeeSearchFilter();
@@ -68,11 +67,11 @@ function generateEmployeeCards(employeeData) {
 }
 
 function generateExtendedEmployeeCard(index) {
-
+    let cardContent = document.querySelector(".extended-content");
     let { name, dob, phone, email, location: { city, street, state, postcode
     }, picture } = employeeInformation[index];
 
-    extendedEmployeeCard.innerHTML +=
+    cardContent.innerHTML =
         `<div class="extended-card-wrapper">
             <span class="employee-modal-close">X</span>
             <div class="employee-image-container">
@@ -100,8 +99,6 @@ function generateExtendedEmployeeCard(index) {
                       <p class="employee-birthday">Birthday: ${dob.date.substring(5, 7)}/${dob.date.substring(8, 10)}/${dob.date.substring(2, 4)}</p>
                  </div>
             </div>
-            <svg class=\"left-arrow arrow\"><use xlink:href=\"sprite/sprite.svg#icon-arrow\"/></svg>
-            <svg class=\"right-arrow arrow\"><use xlink:href=\"sprite/sprite.svg#icon-arrow\"/></svg>
         </div> `;
 }
 
@@ -114,12 +111,16 @@ function hamburgerMenu()  {
 }
 
 function closeModal() {
-    // removes pop-up-active to overlay and extended employee pop-up card
-    extendedEmployeeCard.style.display = "none";
-    overlay.style.display = "none";
-}
-function activateModal() {
+    document.querySelector("main").addEventListener("click", (e) => {
+        if(e.target.className === "employee-modal-close" || e.target === overlay ) {
+            // removes pop-up-active to overlay and extended employee pop-up card
+            extendedEmployeeCard.style.display = "none";
+            overlay.style.display = "none";
+        }
+    });
+} closeModal();
 
+function activateModal() {
     overlay.style.display = "block";
     extendedEmployeeCard.style.display = "block";
 }
@@ -141,13 +142,6 @@ function employeeSearchFilter() {
 }
 function changeSearchIcon() {
     searchIconContainer.innerText = "X";
-
-     if (cardContainer.hasChildNodes()) {
-         searchIconContainer.style.backgroundColor = "#189F13";
-     } else {
-         searchIconContainer.style.backgroundColor = "#A21414";
-     }
-
     if (search.value === "") {resetSearchIcon()}
 }
 
@@ -167,28 +161,28 @@ function openModal() {
     cardContainer.addEventListener('click', e => {
         if (e.target !== this) {
             const card = e.target.closest(".employee-card");
-            const index = card.getAttribute('data-index');
-            generateExtendedEmployeeCard(index);
+            cardIndexValue = card.getAttribute('data-index');
+            generateExtendedEmployeeCard(cardIndexValue);
             activateModal();
-        //  BUG!! More than one pop-up is generated
         }
     });
 }
 
+function modalNext() {
+    const leftArrow = document.querySelector(".left-arrow");
+    const rightArrow = document.querySelector(".right-arrow");
 
-// function modalNext() {
-//     const leftArrow = document.querySelector(".left-arrow");
-//     const rightArrow = document.querySelector(".left-arrow");
-//
-//     rightArrow.addEventListener("click", () => {
-//
-//     })
-// }
-
-extendedCard.addEventListener("click", (e) => {
-    if(e.target.className === "employee-modal-close") {
-        closeModal();
-    } else if (e.target !== this){
-        closeModal();
-    }
-});
+    leftArrow.addEventListener("click", () => {
+        if (cardIndexValue > 0) {
+            cardIndexValue--;
+            generateExtendedEmployeeCard(cardIndexValue)
+        }
+    });
+    rightArrow.addEventListener("click", () => {
+        if (cardIndexValue < 11) {
+            cardIndexValue++;
+            generateExtendedEmployeeCard(cardIndexValue)
+        }
+    })
+}
+modalNext();
