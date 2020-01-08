@@ -112,7 +112,7 @@ main {
 //  pop up container
 .extended-employee-card {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 20%;
   left: 8%;
   z-index: 4;
@@ -128,6 +128,7 @@ main {
       border-radius: 10px;
     }
     .employee-modal-close {
+      @include flex($just:center, $align: center);
       cursor: pointer;
       position: absolute;
       top: 2%;
@@ -161,11 +162,11 @@ main {
       width: 35px;
     }
     .left-arrow {
-      right: 2%;
-    }
-    .right-arrow {
       left: 2%;
       transform: rotate(180deg);
+    }
+    .right-arrow {
+      right: 2%;
     }
     .extended-employee-info {
       padding: 20px 0 0 0;

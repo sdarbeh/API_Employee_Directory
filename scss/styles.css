@@ -560,7 +560,7 @@ ul {
   color: #262626; }
 
 .employee-email:hover, .employee-phone-number:hover {
-  color: #32ADCD; }
+  color: #095F99; }
 
 .search-container {
   display: flex;
@@ -587,6 +587,7 @@ ul {
     width: 45px;
     height: 43px;
     background-color: #262626;
+    color: #F2F2F2;
     border-radius: 0 10px 10px 0; }
   .search-container .icon-search {
     fill: #595959;
@@ -735,13 +736,13 @@ main {
 
 .extended-employee-card {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 20%;
   left: 8%;
   z-index: 4;
   width: 85%;
   border-radius: 10px;
-  border: 1px #BFBFBF solid;
+  border: 1px #E1E1E1 solid;
   background-color: #FFFFFF; }
   .extended-employee-card .extended-card-wrapper {
     text-align: center !important;
@@ -749,6 +750,9 @@ main {
     padding: 15px 20px 30px 20px;
     border-radius: 10px; }
   .extended-employee-card .employee-modal-close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     position: absolute;
     top: 2%;
@@ -767,7 +771,7 @@ main {
     margin: 5px 0 0 0; }
   .extended-employee-card .employee-info-container {
     padding: 0 0 30px 0;
-    border-bottom: 1px #BFBFBF solid;
+    border-bottom: 1px #E1E1E1 solid;
     position: relative; }
   .extended-employee-card .arrow {
     position: absolute;
@@ -775,10 +779,10 @@ main {
     height: 35px;
     width: 35px; }
   .extended-employee-card .left-arrow {
-    right: 2%; }
-  .extended-employee-card .right-arrow {
     left: 2%;
     transform: rotate(180deg); }
+  .extended-employee-card .right-arrow {
+    right: 2%; }
   .extended-employee-card .extended-employee-info {
     padding: 20px 0 0 0; }
   .extended-employee-card .employee-phone-number, .extended-employee-card .employee-address, .extended-employee-card .employee-birthday {
