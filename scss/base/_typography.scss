@@ -47,6 +47,9 @@
   fill: $color-light;
   cursor: pointer;
 }
+.employee-image {
+  cursor: pointer;
+}
 .employee-email, .employee-location {
   color: $color-medium;
   font-size: .9rem;
