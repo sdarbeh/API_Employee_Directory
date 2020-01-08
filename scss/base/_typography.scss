@@ -40,11 +40,6 @@
   font-weight: $font-weight-bold;
   color: $color-text-normal;
 }
-.employee-email-container {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 .employee-email {
   cursor: pointer;
 }

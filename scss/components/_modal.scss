@@ -1,0 +1,105 @@
+//  pop up container
+.extended-employee-card {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 8%;
+  z-index: 4;
+  width: 85%;
+  border-radius: 10px;
+  border: $border-normal;
+  background-color: $white;
+  // Pop-up children
+  .extended-card-wrapper {
+    text-align: center!important;
+    position: relative;
+    padding: 15px 20px 30px 20px;
+    border-radius: 10px;
+  }
+  .employee-modal-close {
+    @include flex($just:center, $align: center);
+    cursor: pointer;
+    position: absolute;
+    top: 2%;
+    right: 5%;
+  }
+  .employee-image-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+  }
+  .employee-image {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+  .employee-name {
+    margin: 0 0 10px 0;
+  }
+  .employee-email, .employee-location {
+    margin: 5px 0 0 0;
+  }
+  .employee-info-container {
+    padding: 0 0 30px 0;
+    border-bottom: $border-normal;
+    position: relative;
+  }
+  .arrow {
+    position: absolute;
+    top: 40%;
+    height: 35px;
+    width: 35px;
+  }
+  .left-arrow {
+    left: 2%;
+    transform: rotate(180deg);
+  }
+  .right-arrow {
+    right: 2%;
+  }
+  .extended-employee-info {
+    padding: 20px 0 0 0;
+  }
+  .employee-phone-number, .employee-address, .employee-birthday {
+    margin: 10px 0 0 0;
+  }
+  // Media query 768px
+  // .extended-employee-card
+  @include mq("m") {
+    left: 27%;
+    width: 45%;
+    .extended-card-wrapper {
+      padding: 15px 25px 30px 25px;
+    }
+  }
+  @include mq("l") {
+    left: 32%;
+    width: 35%;
+  }
+  @include mq("xl") {
+    left: 37%;
+    width: 25%;
+    .extended-card-wrapper {
+      padding: 15px 35px 30px 35px;
+    }
+  }
+  @include mq("xxl") {
+    left: 38.5%;
+    width: 20%;
+  }
+  @include mq("max") {
+    left: 41%;
+    width: 16%;
+  }
+}
+// background overlay for pop-up
+.cover {
+  display: none;
+  position:fixed;
+  top:0;
+  left:0;
+  background:rgba(0,0,0,0.6);
+  z-index:3;
+  width:100%;
+  height:100%;
+}

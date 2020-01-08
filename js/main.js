@@ -8,10 +8,10 @@ const cardContainer = document.querySelector(".employee-card-container");
 let employeeInformation;
 let cardIndexValue;
 
-
+//---------------- ONLOAD --------------------- //
 window.onload = () => {
     searchIconContainer.innerHTML = "<svg class=\"icon-search\"><use xlink:href=\"sprite/sprite.svg#icon-search\"/></svg>\n";
-    openModal();
+    openModalOnClick();
 };
 
 //---------------- EVENT LISTENERS --------------------- //
@@ -21,8 +21,8 @@ search.addEventListener('keyup', (e) => {
     changeSearchIcon();
 });
 searchIconContainer.addEventListener("click",  resetSearchIcon);
-// ------------------- FETCH FUNCTIONS ------------------- //
 
+// ------------------- FETCH FUNCTIONS ------------------- //
 fetch(employeeAPI)
     .then(checkStatus)
     .then(response => response.json())
@@ -42,7 +42,7 @@ function checkStatus(response) {
 
 function generateEmployeeCards(employeeData) {
     employeeInformation = employeeData;
-
+    // fetch data passed as employee data and stored in employee information
     employeeInformation.forEach((employee, index) => {
         document.querySelector(".employee-card-container").innerHTML +=
             `<div class="employee-card" data-index="${index}">
@@ -55,7 +55,7 @@ function generateEmployeeCards(employeeData) {
                             <p class="employee-name">${employee.name.first} ${employee.name.last}</p>
                         </div>
                         <div class="employee-email-container">
-                            <p class="employee-email">${employee.email}</p>
+                            <p class="employee-email">${employee.name.first[0].toLowerCase()}${employee.name.last.toLowerCase()}${employee.dob.date.substring(2, 4)}@api.com</p>
                         </div>
                         <div class="employee-location-container">
                             <p class="employee-location">${employee.location.city}</p>
@@ -67,10 +67,11 @@ function generateEmployeeCards(employeeData) {
 }
 
 function generateExtendedEmployeeCard(index) {
+    // sets index values for each employee
     let cardContent = document.querySelector(".extended-content");
     let { name, dob, phone, email, location: { city, street, state, postcode
     }, picture } = employeeInformation[index];
-
+    // data is being set because of the value of employeeInformation index from "generateEmployeeCards. Ex. "picture.large" not "employee.picture.large"
     cardContent.innerHTML =
         `<div class="extended-card-wrapper">
             <span class="employee-modal-close">X</span>
@@ -82,7 +83,7 @@ function generateExtendedEmployeeCard(index) {
                       <p class="employee-name">${name.first} ${name.last}</p>
                  </div>
                  <div class="employee-email-container">
-                      <p class="employee-email">${email}</p>
+                      <p class="employee-email">${name.first[0].toLowerCase()}${name.last.toLowerCase()}${dob.date.substring(2, 4)}@api.com</p>
                  </div>
                  <div class="employee-location-container">
                       <p class="employee-location">${city}</p>
@@ -108,21 +109,6 @@ function hamburgerMenu()  {
     // toggles class to hamburger and nav. Mobile only use.
     hamburger.classList.toggle("is-active");
     nav.classList.toggle("menu-expanded");
-}
-
-function closeModal() {
-    document.querySelector("main").addEventListener("click", (e) => {
-        if(e.target.className === "employee-modal-close" || e.target === overlay ) {
-            // removes pop-up-active to overlay and extended employee pop-up card
-            extendedEmployeeCard.style.display = "none";
-            overlay.style.display = "none";
-        }
-    });
-} closeModal();
-
-function activateModal() {
-    overlay.style.display = "block";
-    extendedEmployeeCard.style.display = "block";
 }
 
 function employeeSearchFilter() {
@@ -157,21 +143,29 @@ function resetSearchIcon() {
     })
 }
 
-function openModal() {
+function activateModal() {
+    overlay.style.display = "block";
+    extendedEmployeeCard.style.display = "block";
+}
+
+function openModalOnClick() {
     cardContainer.addEventListener('click', e => {
         if (e.target !== this) {
             const card = e.target.closest(".employee-card");
+            // data index of card is set from function "generateEmployeeCards".
             cardIndexValue = card.getAttribute('data-index');
             generateExtendedEmployeeCard(cardIndexValue);
             activateModal();
+            modalNextPrev();
         }
     });
 }
 
-function modalNext() {
+function modalNextPrev() {
     const leftArrow = document.querySelector(".left-arrow");
     const rightArrow = document.querySelector(".right-arrow");
-
+    // cardIndexValue is the current card the modal is displayed. See function "openModalDisplay"
+    // on each prev/next click the value of cardIndex is refactored by -1 or +1
     leftArrow.addEventListener("click", () => {
         if (cardIndexValue > 0) {
             cardIndexValue--;
@@ -179,10 +173,20 @@ function modalNext() {
         }
     });
     rightArrow.addEventListener("click", () => {
+        // If fetching more/less users, value 11 has to match the index of employees. Ex. parent.childNodes.childElementCount
         if (cardIndexValue < 11) {
             cardIndexValue++;
             generateExtendedEmployeeCard(cardIndexValue)
         }
     })
 }
-modalNext();
+
+function closeModal() {
+    document.querySelector("main").addEventListener("click", (e) => {
+        if(e.target.className === "employee-modal-close" || e.target === overlay ) {
+            // sets displays on pop-up card and background overlay when "X" or background is clicked
+            extendedEmployeeCard.style.display = "none";
+            overlay.style.display = "none";
+        }
+    });
+} closeModal();

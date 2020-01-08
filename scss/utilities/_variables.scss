@@ -14,9 +14,8 @@ $color-links: #095F99;
 $border-normal: 1px $color-light solid;
 
 //Content Size
-$profile-image-mobile: 40px;
-$profile-image-tablet: 30px;
-$profile-image-desktop: 30px;
+$profile-image-mobile: 90px;
+$profile-image-normal: 105px;
 
 //Fonts
 $font-primary: 'Open Sans', sans-serif;
@@ -28,5 +27,6 @@ $breakpoints: (
         "m": 768px,
         "l": 1024px,
         "xl": 1200px,
-        "max": 1500px,
+        "xxl": 1500px,
+        "max": 2000px,
 );

@@ -1,18 +1,3 @@
-@mixin position (
-  $pos: null,
-  $top: null,
-  $right: null,
-  $left: null,
-  $bottom: null,
-  $z: null) {
-  position: $pos;
-  top: $top;
-  right: $right;
-  left: $left;
-  bottom: $bottom;
-  z-index: $z;
-}
-
 @mixin flex (
   $dis: flex,
   $dir: null,
