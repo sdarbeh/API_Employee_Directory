@@ -10,7 +10,7 @@ let cardIndexValue;
 
 //---------------- ONLOAD --------------------- //
 window.onload = () => {
-    searchIconContainer.innerHTML = "<svg class=\"icon-search\"><use xlink:href=\"sprite/sprite.svg#icon-search\"/></svg>\n";
+    searchIconContainer.innerHTML = "<i class=\"icon-search fas fa-search\"></i>";
     openModalOnClick();
 };
 
@@ -134,7 +134,7 @@ function changeSearchIcon() {
 function resetSearchIcon() {
     let employeeCards = document.querySelectorAll(".employee-card");
 
-    searchIconContainer.innerHTML = "<svg class=\"icon-search\"><use xlink:href=\"sprite/sprite.svg#icon-search\"/></svg>\n";
+    searchIconContainer.innerHTML = "<i class=\"icon-search fas fa-search\"></i>";
     searchIconContainer.style.backgroundColor = "#262626";
     search.value = "";
     // shows all employee cards

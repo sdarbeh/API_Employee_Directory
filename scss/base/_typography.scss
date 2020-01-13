@@ -29,6 +29,9 @@
   cursor: pointer;
   color: $color-text-normal;
 }
+.icon-search {
+  color: $color-medium;
+}
 //main
 .page-title {
   font-size: 1rem;
@@ -44,7 +47,7 @@
   cursor: pointer;
 }
 .arrow {
-  fill: $color-light;
+  color: $color-light;
   cursor: pointer;
 }
 .employee-image {

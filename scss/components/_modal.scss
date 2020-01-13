@@ -47,15 +47,13 @@
   .arrow {
     position: absolute;
     top: 40%;
-    height: 35px;
-    width: 35px;
+    font-size: 2rem;
   }
   .left-arrow {
-    left: 2%;
-    transform: rotate(180deg);
+    left: 5%;
   }
   .right-arrow {
-    right: 2%;
+    right: 5%;
   }
   .extended-employee-info {
     padding: 20px 0 0 0;

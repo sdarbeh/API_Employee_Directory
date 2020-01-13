@@ -27,6 +27,9 @@
   cursor: pointer;
   color: #262626; }
 
+.icon-search {
+  color: #BFBFBF; }
+
 .page-title {
   font-size: 1rem;
   text-transform: uppercase;
@@ -41,7 +44,7 @@
   cursor: pointer; }
 
 .arrow {
-  fill: #E1E1E1;
+  color: #E1E1E1;
   cursor: pointer; }
 
 .employee-image {
@@ -552,7 +555,7 @@ ul {
     transform: scale(1.1); } }
 
 .arrow:hover {
-  fill: #262626; }
+  color: #262626; }
 
 .employee-modal-close:hover {
   color: #262626; }
@@ -602,13 +605,11 @@ ul {
   .extended-employee-card .arrow {
     position: absolute;
     top: 40%;
-    height: 35px;
-    width: 35px; }
+    font-size: 2rem; }
   .extended-employee-card .left-arrow {
-    left: 2%;
-    transform: rotate(180deg); }
+    left: 5%; }
   .extended-employee-card .right-arrow {
-    right: 2%; }
+    right: 5%; }
   .extended-employee-card .extended-employee-info {
     padding: 20px 0 0 0; }
   .extended-employee-card .employee-phone-number, .extended-employee-card .employee-address, .extended-employee-card .employee-birthday {
@@ -690,7 +691,7 @@ header {
   position: relative;
   width: 100%;
   min-width: 360px;
-  height: 7vh;
+  height: 8vh;
   background-color: #262626;
   color: #F2F2F2; }
   header nav {
