@@ -69,6 +69,10 @@
 .employee-phone-number, .employee-address, .employee-birthday {
   font-size: .9rem; }
 
+.github-foot-logo {
+  font-size: 1.2rem;
+  color: #BFBFBF; }
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -563,6 +567,23 @@ ul {
 .employee-email:hover, .employee-phone-number:hover {
   color: #095F99; }
 
+/*Scroll Bar*/
+/* width */
+::-webkit-scrollbar {
+  width: 2px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFFFFF; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #262626; }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #262626; }
+
 .extended-employee-card {
   display: none;
   position: fixed;
@@ -699,12 +720,15 @@ header {
     display: none; }
   @media (min-width: 768px) {
     header {
-      height: 70px; } }
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center; } }
 
 .icon-logo {
   position: absolute;
   right: 45%;
-  top: 13%;
+  top: 15%;
   z-index: 2;
   margin: 0;
   width: 40px;
@@ -712,20 +736,7 @@ header {
   fill: #F2F2F2; }
   @media (min-width: 768px) {
     .icon-logo {
-      right: 47%;
-      width: 50px;
-      height: 50px; } }
-  @media (min-width: 1024px) {
-    .icon-logo {
-      right: 48%; } }
-  @media (min-width: 1200px) {
-    .icon-logo {
-      right: 49%;
-      width: 45px;
-      height: 45px; } }
-  @media (min-width: 1500px) {
-    .icon-logo {
-      right: 50%; } }
+      position: unset; } }
 
 .menu-expanded {
   position: fixed;
@@ -825,6 +836,9 @@ main {
       width: 32%; } }
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   min-width: 360px;
   height: 7vh;

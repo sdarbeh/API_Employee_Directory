@@ -22,3 +22,20 @@
 .employee-email:hover, .employee-phone-number:hover {
   color: $color-links;
 }
+/*Scroll Bar*/
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: $white;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #262626;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #262626;
+}
